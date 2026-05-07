@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: config-pod
+spec:
+  containers:
+  - name: xyz
+    image: quay.io/anshuk6469/mysql
+    imagePullPolicy: IfNotPresent
+    envFrom:
+    - configMapRef:
+        name: myconfig

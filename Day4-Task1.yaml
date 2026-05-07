@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: web-app
+  namespace: dev
+spec:
+  # modify replicas according to your case
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginxserver
+  template:
+    metadata:
+      labels:
+        app: nginxserver
+    spec:
+      containers:
+      - name: xyz
+        image: quay.io/shruti1988/webapp
+

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysts
+spec:
+  replicas: 3
+  selector:              
+    matchLabels:
+      app: db
+  template:             
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+        - name: c1
+          image: quay.io/anshuk6469/mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: redhat
+          volumeMounts:
+            - name: mystate-pvc
+              mountPath: /mnt
+  volumeClaimTemplates: 
+    - metadata:
+        name: mystate-pvc
+      spec:
+        accessModes:
+          - ReadWriteMany
+        storageClassName: local
+        resources:
+          requests:
+            storage: 500M

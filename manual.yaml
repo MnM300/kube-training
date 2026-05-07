@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: manual-pod
+spec:
+  containers:
+    - name: cont1
+      image: nginx
+      imagePullPolicy: IfNotPresent
+   nodeName: node2

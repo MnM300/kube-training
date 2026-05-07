@@ -1,0 +1,8 @@
+apiVersion: web.apps/v1
+kind: Crontab
+metadata:
+  name: new-job
+spec:
+  cronSpec: " * * * * * "
+  image: quay.io/shruti1988/webapp
+  replicas: 3 

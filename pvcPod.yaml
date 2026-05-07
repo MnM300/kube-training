@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pv-pvc-pod
+spec:
+  containers:
+  - name: abc
+    image: quay.io/shruti1988/webapp
+    volumeMounts:
+    - name: seychelles
+      mountPath: /unique
+  volumes:
+    - name: seychelles
+      persistentVolumeClaim:
+        claimName: pvc1

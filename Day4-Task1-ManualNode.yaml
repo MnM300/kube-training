@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: highcpu-pod
+spec:
+  containers:
+    - name: cont1
+      image: nginx
+      imagePullPolicy: IfNotPresent
+  nodeName: node2
+

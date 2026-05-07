@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-exec
+  labels:
+    test: readiness
+spec:
+  replicas: 5
+  selector:
+    matchLabels: 
+      test: readiness
+  template:
+    metadata:
+      labels:
+        test: readiness
+    spec:
+      containers:
+      - name: readiness
+        image: quay.io/gauravkumar9130/jenkins
+        imagePullPolicy: IfNotPresent
+        readinessProbe:
+          httpGet:
+            path: /login
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5

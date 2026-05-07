@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: test-pod1
+  labels: 
+    color: blue
+spec:
+  containers:
+  - name: cont1
+    image: quay.io/shruti1988/webapp
+    securityContext:
+      capabilities:
+        add: ["NET_RAW"]

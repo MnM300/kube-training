@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: abc
+spec:
+  hostAliases:
+    - ip: "1.1.1.1"
+      hostnames:
+        - "shruti.com"
+    - ip: "2.2.2.2"
+      hostnames:
+        - "bruno.com"
+  containers:
+    - name: abc
+      image: nginx

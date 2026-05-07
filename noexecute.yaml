@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: toleration-pod2
+spec:
+  containers:
+  - name: cont1
+    image: nginx
+    imagePullPolicy: IfNotPresent
+  tolerations:
+    - key: "game"
+      operator: "Equal"
+      value: "football"
+      effect: "NoSchedule"

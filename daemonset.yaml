@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata: 
+  name: myds
+spec:
+  selector:
+    matchLabels:
+      release: beta
+  template:
+    metadata:
+      labels:
+        release: beta
+    spec:
+      containers:
+        - name: xyz
+          image: nginx
+          imagePullPolicy: IfNotPresent

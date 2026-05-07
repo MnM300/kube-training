@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: original-blue
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      price: original
+  template:
+    metadata:
+      labels:
+        price: original
+    spec:
+      containers:
+      - name: test
+        image: quay.io/shruti1988/production:v1

@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sale-green
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      price: sale
+  template:
+    metadata:
+      labels:
+        price: sale
+    spec:
+      containers:
+      - name: test
+        image: quay.io/shruti1988/production:v1

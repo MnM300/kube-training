@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: anno-pod
+  annotations: "This iss a pod for dev-app java"
+  owner: "this belongs to dev team"
+spec:
+  container:
+  - name: cont1
+    image: nginx
